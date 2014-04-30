@@ -87,6 +87,7 @@ sealed class XlTableDataFactory<T>
 
 }
 
+// ReSharper disable once PartialTypeWithSinglePart
 static partial class XlTableFormat
 {
     public static readonly IXlTableDataFactory<object> DefaultDataFactory = new XlTableDataFactory<object>
