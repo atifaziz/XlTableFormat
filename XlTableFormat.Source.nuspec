@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>XlTableFormat.Source</id>
+        <version>1.0.0</version>
+        <title>XlTable Format Reader for C#</title>
+        <authors>Atif Aziz</authors>
+        <owners>Atif Aziz</owners>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+        <projectUrl>https://github.com/atifaziz/XlTableFormat</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Single C# class to parse XlTable format.</description>
+        <copyright>Copyright (c) 2014 Atif Aziz. All rights reserved.</copyright>
+        <tags>excel xl xltable format dde</tags>
+    </metadata>
+    <files>
+        <file src="XlTableFormat.cs" target="content\App_Packages\XlTableFormat\XlTableFormat.cs" />
+    </files>
+</package>

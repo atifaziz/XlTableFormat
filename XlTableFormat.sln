@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester.csproj", "{00A24585-289A-4621-A5C5-15751FD6AF5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD01467E-C199-4CAC-9F07-31CBD1674D70}"
+	ProjectSection(SolutionItems) = preProject
+		XlTableFormat.Source.nuspec = XlTableFormat.Source.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
