@@ -174,6 +174,7 @@ static partial class XlTableFormat
                     {
                         var str = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
                         yield return factory.String(str);
+                        i++;
                         size -= (ushort) (1 + checked((byte) str.Length));
                     }
                 }
