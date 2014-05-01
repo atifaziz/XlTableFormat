@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester.csproj", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD01467E-C199-4CAC-9F07-31CBD1674D70}"
 	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		buildw.cmd = buildw.cmd
 		COPYING.txt = COPYING.txt
+		pack.cmd = pack.cmd
+		test.cmd = test.cmd
+		packw.cmd = packw.cmd
+		testw.cmd = testw.cmd
 		XlTableFormat.Source.nuspec = XlTableFormat.Source.nuspec
 	EndProjectSection
 EndProject
