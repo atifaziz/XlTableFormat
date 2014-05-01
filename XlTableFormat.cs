@@ -164,7 +164,7 @@ static partial class XlTableFormat
             var cols = reader.ReadUInt16();
             yield return factory.Table(rows, cols);
             var cells = rows * cols;
-            for (var i = 0; i < cells; i++)
+            while (cells > 0)
             {
                 var type = (XlTableDataType) reader.ReadUInt16();
                 size = reader.ReadUInt16();
@@ -174,7 +174,7 @@ static partial class XlTableFormat
                     {
                         var str = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
                         yield return factory.String(str);
-                        i++;
+                        cells--;
                         size -= (ushort) (1 + checked((byte) str.Length));
                     }
                 }
@@ -217,8 +217,10 @@ static partial class XlTableFormat
                         default: throw new FormatException();
                     }
 
-                    for (var j = 0; j < count; j++, i++)
-                        yield return rf(reader, factory);                                    
+                    for (var j = 0; j < count; j++)
+                        yield return rf(reader, factory);
+                    
+                    cells -= count;
                 }
             }
         }
