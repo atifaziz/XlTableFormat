@@ -127,6 +127,11 @@ static partial class XlTableFormat
         }
     }
 
+    public static IEnumerable<object> Read(byte[] data)
+    {
+        return Read(data, DefaultDataFactory);
+    }
+
     public static IEnumerable<T> Read<T>(byte[] data, IXlTableDataFactory<T> factory)
     {
         if (data == null) throw new ArgumentNullException("data");
@@ -136,6 +141,11 @@ static partial class XlTableFormat
         using (var e = Read(ms, factory))
         while (e.MoveNext())
             yield return e.Current;
+    }
+
+    public static IEnumerator<object> Read(Stream stream)
+    {
+        return Read(stream, DefaultDataFactory);
     }
 
     public static IEnumerator<T> Read<T>(Stream stream, IXlTableDataFactory<T> factory)
