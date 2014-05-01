@@ -1,11 +1,15 @@
 namespace Tester
 {
+    #region Imports
+
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Reflection;
     using System.Runtime.InteropServices;
     using NUnit.Framework;
+
+    #endregion
 
     [TestFixture]
     sealed class Tests
