@@ -99,15 +99,16 @@ namespace Tester
         public void Read_Strings()
         {
             using (var r = Read(
-                0x10, 0x00, 0x04, 0x00, 0x01, 0x00, 0x03, 0x00, 
-                0x02, 0x00, 0x0c, 0x00, 0x03, 0x66, 0x6f, 0x6f, 
+                0x10, 0x00, 0x04, 0x00, 0x01, 0x00, 0x03, 0x00,
+                0x02, 0x00, 0x0c, 0x00, 0x03, 0x66, 0x6f, 0x6f,
                 0x03, 0x62, 0x61, 0x72, 0x03, 0x62, 0x61, 0x7a))
             {
                 Assert.That(r.Read(), Is.EqualTo(new[] { 1, 3 }));
                 Assert.That(r.Read(), Is.EqualTo("foo"));
                 Assert.That(r.Read(), Is.EqualTo("bar"));
                 Assert.That(r.Read(), Is.EqualTo("baz"));
-            }         
+                Assert.That(r.EOF, Is.True);
+            };
         }
 
         static Reader<object> Read(params byte[] bytes)
@@ -133,6 +134,9 @@ namespace Tester
                 _enumerator = enumerator;
             }
 
+            // ReSharper disable once InconsistentNaming
+            public bool EOF { get { return !_enumerator.MoveNext(); } }
+
             public T Read()
             {
                 var e = _enumerator;
@@ -149,11 +153,7 @@ namespace Tester
                 if (e == null) 
                     return;
                 _enumerator = null;
-                var eof = !e.MoveNext();
                 e.Dispose();
-                if (eof) return;
-                // Deliberate violation of the rule that Dispose should now throw
-                throw new Exception("Source was not fully read.");
             }
         }
     }
