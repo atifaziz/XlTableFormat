@@ -99,6 +99,40 @@ namespace Tester
         }
 
         [Test] // ReSharper disable once InconsistentNaming
+        public void Read_ThrownWithNullData()
+        {
+            var e = Assert.Throws<ArgumentNullException>(() => 
+                XlTableFormat.Read((byte[]) null));
+            Assert.That(e.ParamName, Is.EqualTo("data"));
+        }
+
+        [Test] // ReSharper disable once InconsistentNaming
+        public void Read_ThrowsWithNullFactory()
+        {
+            var e = Assert.Throws<ArgumentNullException>(() => 
+                XlTableFormat.Read(new byte[0], (IXlTableDataFactory<object>) null));
+            Assert.That(e.ParamName, Is.EqualTo("factory"));
+        }
+
+        [Test] // ReSharper disable once InconsistentNaming
+        public void Read_ThrowsWithNullStream()
+        {
+            var e = Assert.Throws<ArgumentNullException>(() =>
+                // ReSharper disable once IteratorMethodResultIsIgnored
+                XlTableFormat.Read((Stream) null, (IXlTableDataFactory<object>) null));
+            Assert.That(e.ParamName, Is.EqualTo("stream"));
+        }
+
+        [Test] // ReSharper disable once InconsistentNaming
+        public void Read_ThrowsWithNullFactoryUsingStreamOverload()
+        {
+            var e = Assert.Throws<ArgumentNullException>(() =>
+                // ReSharper disable once IteratorMethodResultIsIgnored
+                XlTableFormat.Read(Stream.Null, (IXlTableDataFactory<object>) null));
+            Assert.That(e.ParamName, Is.EqualTo("factory"));
+        }
+
+        [Test] // ReSharper disable once InconsistentNaming
         public void Read_Strings()
         {
             using (var r = Read(

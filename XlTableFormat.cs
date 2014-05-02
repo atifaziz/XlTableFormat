@@ -136,7 +136,11 @@ static partial class XlTableFormat
     {
         if (data == null) throw new ArgumentNullException("data");
         if (factory == null) throw new ArgumentNullException("factory");
-
+        return ReadImpl(data, factory);
+    }
+    
+    static IEnumerable<T> ReadImpl<T>(byte[] data, IXlTableDataFactory<T> factory)
+    {
         using (var ms = new MemoryStream(data))
         using (var e = Read(ms, factory))
         while (e.MoveNext())
@@ -152,7 +156,11 @@ static partial class XlTableFormat
     {
         if (stream == null) throw new ArgumentNullException("stream");
         if (factory == null) throw new ArgumentNullException("factory");
-
+        return ReadImpl(stream, factory);
+    }
+    
+    static IEnumerator<T> ReadImpl<T>(Stream stream, IXlTableDataFactory<T> factory)
+    {
         using (var reader = new BinaryReader(stream))
         {
             if (XlTableDataType.Table != (XlTableDataType) reader.ReadUInt16()) 
