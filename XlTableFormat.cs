@@ -27,7 +27,8 @@ using System.Text;
 
 #endregion
 
-interface IXlTableDataFactory<out T>
+// ReSharper disable once PartialTypeWithSinglePart
+partial interface IXlTableDataFactory<out T>
 {
     T Blank { get; }
     T Skip  { get; }
@@ -39,7 +40,8 @@ interface IXlTableDataFactory<out T>
     T Int   (int value);
 }
 
-sealed class XlTableDataFactory<T>
+// ReSharper disable once PartialTypeWithSinglePart
+sealed partial class XlTableDataFactory<T>
 {
     public T Blank { get; set; }
     public T Skip { get; set; }
