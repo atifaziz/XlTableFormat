@@ -1,7 +1,5 @@
 # XlTableFormat
 
-## Introduction
-
 The [XlTable format](https://github.com/atifaziz/XlTableFormat/wiki/XlTable:-Fast-Table-Format) is a fast table format when using [Dynamic Data Exchange (DDE)](http://en.wikipedia.org/wiki/Dynamic_Data_Exchange) to get data from Microsoft Excel. This project provides a single C# file called `XlTableFormat.cs` that adds the neccessary types and code to read and decode the XlTable format.
 
 ## Installing
